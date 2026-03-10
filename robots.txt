@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://jamielevycx.com/sitemap.xml
+Sitemap: https://jamielevy.biz/sitemap.xml
