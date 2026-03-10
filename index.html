@@ -586,12 +586,12 @@ nav {
   opacity: 0.55;
   font-weight: 900;
 }
-.belief-cards:has(.belief-card:hover) .belief-card.is-active {
+.belief-cards:has(.belief-card:hover) .belief-card.is-active:not(:hover) {
   border-left-color: transparent;
   transform: none;
   box-shadow: none;
 }
-.belief-cards:has(.belief-card:hover) .belief-card.is-active .bc-num {
+.belief-cards:has(.belief-card:hover) .belief-card.is-active:not(:hover) .bc-num {
   opacity: 0.18;
 }
 .belief-card .bc-num {
@@ -691,13 +691,13 @@ nav {
 }
 .service-card:hover .sc-icon,
 .service-card.is-active .sc-icon { background: var(--coral-dim); }
-.services-grid:has(.service-card:hover) .service-card.is-active {
+.services-grid:has(.service-card:hover) .service-card.is-active:not(:hover) {
   border-color: transparent;
   transform: none;
   box-shadow: none;
 }
-.services-grid:has(.service-card:hover) .service-card.is-active::after { transform: scaleX(0); }
-.services-grid:has(.service-card:hover) .service-card.is-active .sc-icon { background: var(--coral-pale); }
+.services-grid:has(.service-card:hover) .service-card.is-active:not(:hover)::after { transform: scaleX(0); }
+.services-grid:has(.service-card:hover) .service-card.is-active:not(:hover) .sc-icon { background: var(--coral-pale); }
 
 .service-card h3 {
   font-family: 'Fraunces', serif;
@@ -793,7 +793,7 @@ nav {
   transform: translateY(-5px);
   box-shadow: 0 16px 48px rgba(26,39,68,0.1);
 }
-.program-cards:has(.program-card:hover) .program-card.is-active {
+.program-cards:has(.program-card:hover) .program-card.is-active:not(:hover) {
   transform: none;
   box-shadow: none;
 }
