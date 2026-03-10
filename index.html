@@ -42,7 +42,7 @@
       "@id": "https://jamielevy.biz/#jamie",
       "name": "Jamie Levy",
       "jobTitle": "Customer Community & Engagement Leader",
-      "description": "Fractional CCO and customer engagement strategist who turns customers into advocates by building communities, programmes, and human-first customer success functions.",
+      "description": "Fractional CCO and customer engagement strategist who turns customers into advocates by building communities, programs, and human-first customer success functions.",
       "url": "https://jamielevy.biz/",
       "image": "https://jamielevy.biz/headshot.jpeg",
       "email": "hello@jamielevy.biz",
@@ -59,7 +59,7 @@
         "Customer Advocacy",
         "Fractional CCO",
         "Customer Success",
-        "Community Programme Design",
+        "Community Program Design",
         "Customer Retention",
         "B2B SaaS",
         "E-Commerce"
@@ -78,7 +78,7 @@
       "@id": "https://jamielevy.biz/#service",
       "name": "Jamie Levy — Fractional CCO & Customer Engagement Consulting",
       "url": "https://jamielevy.biz/",
-      "description": "Fractional CCO, community programme design, customer engagement strategy, advocacy programmes, CS team building, and keynote facilitation.",
+      "description": "Fractional CCO, community program design, customer engagement strategy, advocacy programs, CS team building, and keynote facilitation.",
       "founder": { "@id": "https://jamielevy.biz/#jamie" },
       "areaServed": ["US", "GB", "CA", "AU"],
       "email": "hello@jamielevy.biz",
@@ -86,7 +86,7 @@
         "Fractional Chief Customer Officer",
         "Customer Community Building",
         "Customer Engagement Strategy",
-        "Advocacy Programme Design",
+        "Advocacy Program Design",
         "CS Team Coaching",
         "Keynote Speaking"
       ],
@@ -575,10 +575,16 @@ nav {
   transition: all 0.3s ease;
   position: relative;
 }
-.belief-card:hover {
+.belief-card:hover,
+.belief-card.is-active {
   border-left-color: var(--coral);
   transform: translateX(6px);
   box-shadow: 0 4px 24px rgba(232,101,74,0.1);
+}
+.belief-card:hover .bc-num,
+.belief-card.is-active .bc-num {
+  opacity: 0.55;
+  font-weight: 900;
 }
 .belief-card .bc-num {
   font-family: 'Fraunces', serif;
@@ -654,12 +660,14 @@ nav {
   transform-origin: left;
   transition: transform 0.3s ease;
 }
-.service-card:hover {
+.service-card:hover,
+.service-card.is-active {
   border-color: rgba(232,101,74,0.2);
   transform: translateY(-4px);
   box-shadow: 0 12px 40px rgba(232,101,74,0.1);
 }
-.service-card:hover::after { transform: scaleX(1); }
+.service-card:hover::after,
+.service-card.is-active::after { transform: scaleX(1); }
 
 .sc-icon {
   width: 52px;
@@ -673,7 +681,8 @@ nav {
   margin-bottom: 1.3rem;
   transition: background 0.2s;
 }
-.service-card:hover .sc-icon { background: var(--coral-dim); }
+.service-card:hover .sc-icon,
+.service-card.is-active .sc-icon { background: var(--coral-dim); }
 
 .service-card h3 {
   font-family: 'Fraunces', serif;
@@ -764,7 +773,8 @@ nav {
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.program-card:hover {
+.program-card:hover,
+.program-card.is-active {
   transform: translateY(-5px);
   box-shadow: 0 16px 48px rgba(26,39,68,0.1);
 }
@@ -1226,7 +1236,7 @@ footer {
       </p>
       <p>
         That gap — between transaction and transformation — is exactly where I work.
-        I build programmes, teams, and cultures that close it.
+        I build programs, teams, and cultures that close it.
       </p>
       <p>
         The result? Customers who stay longer, spend more, and bring their friends.
@@ -1234,7 +1244,7 @@ footer {
     </div>
 
     <div class="belief-cards reveal">
-      <div class="belief-card">
+      <div class="belief-card is-active">
         <span class="bc-num">01</span>
         <h3>🤝 Customers are humans first</h3>
         <p>Every renewal decision, every referral, every churn risk — it comes back to how someone felt. Feelings are data too.</p>
@@ -1272,7 +1282,7 @@ footer {
 
     <div class="services-grid reveal">
 
-      <div class="service-card">
+      <div class="service-card is-active">
         <div class="sc-icon">👑</div>
         <h3>Fractional CCO / VP Customer Success</h3>
         <p>Senior CS leadership without the full-time price tag. I embed into your team, align your go-to-market motion, and build the function that drives retention and growth.</p>
@@ -1281,7 +1291,7 @@ footer {
 
       <div class="service-card">
         <div class="sc-icon">🌐</div>
-        <h3>Community Programme Design</h3>
+        <h3>Community Program Design</h3>
         <p>From zero to a thriving customer community. I design the architecture, content, peer connections, and rituals that make customers want to show up and stay.</p>
         <span class="sc-tag">Community Building</span>
       </div>
@@ -1289,14 +1299,14 @@ footer {
       <div class="service-card">
         <div class="sc-icon">💡</div>
         <h3>Customer Engagement Strategy</h3>
-        <p>One-to-many engagement that still feels personal. I create programmes, touchpoints, and experiences that move customers from passive users to active participants.</p>
+        <p>One-to-many engagement that still feels personal. I create programs, touchpoints, and experiences that move customers from passive users to active participants.</p>
         <span class="sc-tag">Engagement Design</span>
       </div>
 
       <div class="service-card">
         <div class="sc-icon">📣</div>
-        <h3>Advocacy &amp; Reference Programme</h3>
-        <p>Unlock the power of your happiest customers. I build structured advocacy programmes that turn customer love into case studies, references, and word-of-mouth growth.</p>
+        <h3>Advocacy &amp; Reference Program</h3>
+        <p>Unlock the power of your happiest customers. I build structured advocacy programs that turn customer love into case studies, references, and word-of-mouth growth.</p>
         <span class="sc-tag">Revenue Impact</span>
       </div>
 
@@ -1310,7 +1320,7 @@ footer {
       <div class="service-card">
         <div class="sc-icon">🎙️</div>
         <h3>Keynote &amp; Workshop Facilitation</h3>
-        <p>A sought-after speaker on customer engagement, community, and the human side of SaaS. I run workshops that shift mindsets, not just tick CPD boxes.</p>
+        <p>A sought-after speaker on customer engagement, community, and the human side of SaaS. I run workshops that shift mindsets, not just check CPD boxes.</p>
         <span class="sc-tag">Speaking &amp; Facilitation</span>
       </div>
 
@@ -1323,7 +1333,7 @@ footer {
   <div class="proof-strip-inner">
     <div class="proof-item">
       <span class="big-num">100%</span>
-      <span class="big-lbl">Customer satisfaction on the Unboxed programme at Shopify Plus</span>
+      <span class="big-lbl">Customer satisfaction on the Unboxed program at Shopify Plus</span>
     </div>
     <div class="proof-item">
       <span class="big-num">85%+</span>
@@ -1335,33 +1345,33 @@ footer {
     </div>
     <div class="proof-item">
       <span class="big-num">20+</span>
-      <span class="big-lbl">Years building communities and programmes that actually move the needle</span>
+      <span class="big-lbl">Years building communities and programs that actually move the needle</span>
     </div>
   </div>
 </div>
 
-<!-- ═══════════ SIGNATURE PROGRAMMES ═══════════ -->
-<section class="programs" id="programmes">
+<!-- ═══════════ SIGNATURE PROGRAMS ═══════════ -->
+<section class="programs" id="programs">
   <div class="programs-inner">
     <div class="programs-header reveal">
       <p class="eyebrow">Proof in Practice</p>
-      <h2 class="section-heading">Programmes I've <em>built from scratch</em></h2>
+      <h2 class="section-heading">Programs I've <em>built from scratch</em></h2>
       <p class="section-sub">
-        Not theory — real programmes I designed, launched, and ran. This is what "speaking human" looks like in execution.
+        Not theory — real programs I designed, launched, and ran. This is what "speaking human" looks like in execution.
       </p>
     </div>
 
     <div class="program-cards reveal">
-      <div class="program-card">
+      <div class="program-card is-active">
         <span class="pc-emoji">📦</span>
         <h3>Unboxed</h3>
         <span class="pc-company">Shopify Plus</span>
         <p>
-          A net-new programme I designed from the ground up to bring brands together to identify
+          A net-new program I designed from the ground up to bring brands together to identify
           emerging trends and inspire each other. Multi-country events with 35+ brands attending from
           4 countries — intimate, high-signal, and built entirely on trust.
         </p>
-        <div class="pc-result">100% client satisfaction · Brands travelling from 4 countries</div>
+        <div class="pc-result">100% client satisfaction · Brands traveling from 4 countries</div>
       </div>
 
       <div class="program-card">
@@ -1390,10 +1400,10 @@ footer {
 
       <div class="program-card">
         <span class="pc-emoji">⭐</span>
-        <h3>Merchant Reference Programme</h3>
+        <h3>Merchant Reference Program</h3>
         <span class="pc-company">Shopify Plus</span>
         <p>
-          Structured advocacy built to close deals. I created the programme architecture that
+          Structured advocacy built to close deals. I created the program architecture that
           established a robust pipeline of merchant references — turning happy customers into
           active contributors to new business growth.
         </p>
@@ -1497,8 +1507,8 @@ footer {
           <div class="tl-company">Shopify Plus</div>
           <ul class="tl-bullets">
             <li>Built the engagement team from scratch; grew to lead a globally dispersed team with $5M budget</li>
-            <li>Created Unboxed (100% CSAT), Product Lab, peer roundtables, and merchant reference programme</li>
-            <li>Recognised company-wide as the thought leader on merchant relationships and trend identification</li>
+            <li>Created Unboxed (100% CSAT), Product Lab, peer roundtables, and merchant reference program</li>
+            <li>Recognized company-wide as the thought leader on merchant relationships and trend identification</li>
           </ul>
         </div>
       </div>
@@ -1548,11 +1558,11 @@ footer {
 
   <div class="pill-cloud reveal">
     <span class="pill">Customer Community Building</span>
-    <span class="pill">Engagement Programme Design</span>
+    <span class="pill">Engagement Program Design</span>
     <span class="pill">Customer Advocacy</span>
     <span class="pill">Customer Retention</span>
     <span class="pill">Fractional CCO</span>
-    <span class="pill">CS Organisation Design</span>
+    <span class="pill">CS Organization Design</span>
     <span class="pill">One-to-Many Engagement Models</span>
     <span class="pill">Cross-Functional Leadership</span>
     <span class="pill">Storytelling &amp; Content</span>
@@ -1562,7 +1572,7 @@ footer {
     <span class="pill">$5M+ Budget Oversight</span>
     <span class="pill">Hiring &amp; Coaching</span>
     <span class="pill">Customer Journey Mapping</span>
-    <span class="pill">Peer-Led Programmes</span>
+    <span class="pill">Peer-Led Programs</span>
     <span class="pill">NRR &amp; Renewal Strategy</span>
     <span class="pill">Public Speaking</span>
     <span class="pill">Workshop Facilitation</span>
@@ -1599,7 +1609,7 @@ footer {
       </div>
       <div class="pub-item">
         <span class="pub-icon">✍️</span>
-        <h4>"Leading Product in a Marketing-Led Organisation"</h4>
+        <h4>"Leading Product in a Marketing-Led Organization"</h4>
       </div>
       <div class="pub-item">
         <span class="pub-icon">✍️</span>
