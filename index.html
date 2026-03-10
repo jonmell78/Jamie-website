@@ -1177,6 +1177,13 @@ footer {
   .program-cards { grid-template-columns: 1fr; }
   .services-grid { grid-template-columns: 1fr; }
   footer { flex-direction: column; text-align: center; }
+
+  /* Prevent hero headline from overflowing on narrow screens */
+  .hero-headline { font-size: 2.4rem; }
+
+  /* Stop bc-num overlapping the card heading */
+  .belief-card h3 { padding-right: 3rem; }
+  .belief-card .bc-num { font-size: 1.6rem; }
 }
 </style>
 </head>
