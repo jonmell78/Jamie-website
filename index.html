@@ -574,14 +574,18 @@ nav {
   border-left: 4px solid transparent;
   transition: all 0.3s ease;
   position: relative;
+  cursor: pointer;
+  touch-action: manipulation;
 }
 .belief-card:hover,
+.belief-card:active,
 .belief-card.is-active {
   border-left-color: var(--coral);
   transform: translateX(6px);
   box-shadow: 0 4px 24px rgba(232,101,74,0.1);
 }
 .belief-card:hover .bc-num,
+.belief-card:active .bc-num,
 .belief-card.is-active .bc-num {
   opacity: 0.55;
   font-weight: 900;
@@ -657,6 +661,8 @@ nav {
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  cursor: pointer;
+  touch-action: manipulation;
 }
 .service-card::after {
   content: '';
@@ -669,12 +675,14 @@ nav {
   transition: transform 0.3s ease;
 }
 .service-card:hover,
+.service-card:active,
 .service-card.is-active {
   border-color: rgba(232,101,74,0.2);
   transform: translateY(-4px);
   box-shadow: 0 12px 40px rgba(232,101,74,0.1);
 }
 .service-card:hover::after,
+.service-card:active::after,
 .service-card.is-active::after { transform: scaleX(1); }
 
 .sc-icon {
@@ -690,6 +698,7 @@ nav {
   transition: background 0.2s;
 }
 .service-card:hover .sc-icon,
+.service-card:active .sc-icon,
 .service-card.is-active .sc-icon { background: var(--coral-dim); }
 .services-grid:has(.service-card:hover) .service-card.is-active:not(:hover) {
   border-color: transparent;
@@ -790,8 +799,11 @@ nav {
   display: flex;
   flex-direction: column;
   min-height: 380px;
+  cursor: pointer;
+  touch-action: manipulation;
 }
 .program-card:hover,
+.program-card:active,
 .program-card.is-active {
   transform: translateY(-5px);
   box-shadow: 0 16px 48px rgba(26,39,68,0.1);
@@ -897,7 +909,8 @@ nav {
   transition: transform 0.2s;
   box-shadow: 0 0 0 4px rgba(232,101,74,0.15);
 }
-.tl-item:hover .tl-dot { transform: scale(1.35); }
+.tl-item:hover .tl-dot,
+.tl-item:active .tl-dot { transform: scale(1.35); }
 
 .tl-line {
   width: 1.5px;
@@ -1014,8 +1027,11 @@ nav {
   align-items: flex-start;
   gap: 1.2rem;
   transition: all 0.3s ease;
+  cursor: pointer;
+  touch-action: manipulation;
 }
-.pub-item:hover {
+.pub-item:hover,
+.pub-item:active {
   border-color: var(--coral);
   transform: translateY(-3px);
   box-shadow: 0 8px 28px rgba(232,101,74,0.1);
@@ -1711,6 +1727,9 @@ const observer  = new IntersectionObserver((entries) => {
 }, { threshold: 0.12 });
 
 revealEls.forEach(el => observer.observe(el));
+
+// Enable CSS :active states on iOS (requires a touch listener on the document)
+document.addEventListener('touchstart', function(){}, {passive: true});
 
 // Nav shadow on scroll
 const nav = document.querySelector('nav');
