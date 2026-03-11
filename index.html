@@ -1294,7 +1294,7 @@ footer {
     </div>
 
     <div class="belief-cards reveal">
-      <div class="belief-card is-active">
+      <div class="belief-card">
         <span class="bc-num">01</span>
         <h3>🤝 Customers are humans first</h3>
         <p>Every renewal decision, every referral, every churn risk — it comes back to how someone felt. Feelings are data too.</p>
@@ -1332,7 +1332,7 @@ footer {
 
     <div class="services-grid reveal">
 
-      <div class="service-card is-active">
+      <div class="service-card">
         <div class="sc-icon">👑</div>
         <h3>Fractional CCO / VP Customer Success</h3>
         <p>Senior CS leadership without the full-time price tag. I embed into your team, align your go-to-market motion, and build the function that drives retention and growth.</p>
@@ -1412,7 +1412,7 @@ footer {
     </div>
 
     <div class="program-cards reveal">
-      <div class="program-card is-active">
+      <div class="program-card">
         <span class="pc-emoji">📦</span>
         <h3>Unboxed</h3>
         <span class="pc-company">Shopify Plus</span>
@@ -1728,8 +1728,51 @@ const observer  = new IntersectionObserver((entries) => {
 
 revealEls.forEach(el => observer.observe(el));
 
-// Enable CSS :active states on iOS (requires a touch listener on the document)
+// Enable CSS :active states on iOS
 document.addEventListener('touchstart', function(){}, {passive: true});
+
+// Scroll-driven card focus — highlights whichever card is closest to viewport centre
+(function () {
+  const GROUPS = [
+    { wrap: '.belief-cards',  card: '.belief-card'  },
+    { wrap: '.services-grid', card: '.service-card'  },
+    { wrap: '.program-cards', card: '.program-card'  },
+  ];
+
+  function updateFocus() {
+    const mid = window.innerHeight / 2;
+
+    GROUPS.forEach(function (g) {
+      const wrap = document.querySelector(g.wrap);
+      if (!wrap) return;
+
+      const cards = Array.from(wrap.querySelectorAll(g.card));
+      const wrapRect = wrap.getBoundingClientRect();
+
+      // If the whole group is off-screen, clear active state
+      if (wrapRect.bottom < 0 || wrapRect.top > window.innerHeight) {
+        cards.forEach(function (c) { c.classList.remove('is-active'); });
+        return;
+      }
+
+      // Find the card whose centre is closest to the viewport midpoint
+      var best = null, bestDist = Infinity;
+      cards.forEach(function (card) {
+        var r    = card.getBoundingClientRect();
+        var dist = Math.abs((r.top + r.height / 2) - mid);
+        if (dist < bestDist) { bestDist = dist; best = card; }
+      });
+
+      cards.forEach(function (c) {
+        c.classList.toggle('is-active', c === best);
+      });
+    });
+  }
+
+  window.addEventListener('scroll', updateFocus, { passive: true });
+  // Also run on load so the first visible card is already highlighted
+  updateFocus();
+}());
 
 // Nav shadow on scroll
 const nav = document.querySelector('nav');
